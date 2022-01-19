@@ -1,0 +1,138 @@
+<div class="example-container" [class.example-is-mobile]="mobileQuery.matches">
+  <mat-toolbar class="example-toolbar">
+
+    <div class="d-flex justify-content-between mb-3 nav-content">
+      <div class="p-2">
+        <button mat-icon-button (click)="snav.toggle()">
+          <img class='img' src="../../../assets/impata logo 2.png">
+        </button>
+      </div>
+      <div class="p-2">
+        <input matInput type="text" class="search" placeholder="Search courses or module">
+      </div>
+      <div class="p-2">
+        <img class="profileImg" [src]="profileImg">
+      </div>
+    </div>
+  </mat-toolbar>
+
+  <mat-sidenav-container class="example-sidenav-container" [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
+    <mat-sidenav #snav opened [mode]="mobileQuery.matches ? 'over' : 'side'" [fixedInViewport]="mobileQuery.matches"
+      fixedTopGap="56">
+
+      <div>
+
+      </div>
+      <mat-nav-list>
+        <mat-list-item>
+          <div class="sidebar-image">
+            <img src="../../../assets/dashboardicon.png">
+            <p class='navText'>Dashboard</p>
+          </div>
+        </mat-list-item>
+        <mat-list-item>
+          <div class="sidebar-image">
+            <img src="../../../assets/couseIcon.png">
+            <p class='navText'>Course</p>
+          </div>
+        </mat-list-item>
+        <mat-list-item>
+          <div class="sidebar-image">
+            <img src="../../../assets/schoolIcon.png">
+            <p class='navText'>School</p>
+          </div>
+
+        </mat-list-item>
+      </mat-nav-list>
+    </mat-sidenav>
+
+
+    <mat-sidenav-content>
+      <div class="row container">
+        <div class="col-lg-9">
+
+          <div class="container">
+            <h2>Dashboard</h2>
+            <hr>
+            <div class="row">
+
+              <div class="col-lg-3 col-md-4 col-sm-6" *ngFor="let content of dashContent">
+                <mat-card class="card">
+                  <img mat-card-image [src]="content.imageUrl" alt="Photo of a Shiba Inu">
+                  <mat-card-content>
+                    <p>
+                      {{content.courseTitle}}
+                    </p>
+                    <p>
+                      {{content.courseCode}}
+                    </p>
+                    <mat-progress-bar mode="determinate" [value]="content.progress"></mat-progress-bar>
+                  </mat-card-content>
+                </mat-card>
+              </div>
+
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 todo">
+          <h3>To-Do</h3>
+          <hr>
+          <div class="row todo-container">
+            <mat-card class="todo-card">
+              <mat-card-header>
+                Module Quiz 1
+              </mat-card-header>
+              <mat-card-content>
+                <p>
+                  Introduction to Physics
+                </p>
+                <p>
+                  5 Points
+                </p>
+                <p>
+                  April 20th, 2022 at 11:29am
+                </p>
+              </mat-card-content>
+            </mat-card>
+            <hr>
+            <mat-card class="todo-card">
+              <mat-card-header>
+                Module Quiz 1
+              </mat-card-header>
+              <mat-card-content>
+                <p>
+                  Introduction to Physics
+                </p>
+                <p>
+                  5 Points
+                </p>
+                <p>
+                  April 20th, 2022 at 11:29am
+                </p>
+              </mat-card-content>
+            </mat-card>
+            <hr>
+            <mat-card class="todo-card">
+              <mat-card-header>
+                Module Quiz 1
+              </mat-card-header>
+              <mat-card-content>
+                <p>
+                  Introduction to Physics
+                </p>
+                <p>
+                  5 Points
+                </p>
+                <p>
+                  April 20th, 2022 at 11:29am
+                </p>
+              </mat-card-content>
+            </mat-card>
+            <hr>
+          </div>
+        </div>
+      </div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>
+

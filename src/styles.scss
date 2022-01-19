@@ -1,0 +1,15 @@
+/* You can add global styles to this file, and also import other style files */
+
+app-root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  height: 100vh;
+}
+
+.mat-tab-body-content {
+  height: auto !important;
+  overflow: initial !important;
+}

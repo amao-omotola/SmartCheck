@@ -1,0 +1,157 @@
+.body-container {
+  background-image: linear-gradient(#4de93cc0, #15bc71);
+  -webkit-background-blend-mode: soft-light;
+  background-blend-mode: soft-light;
+  background-size: cover;
+  height: 100%;
+  display: flex;
+}
+
+.card {
+  margin: auto; background: #ffffff;
+  border-radius: 15px;
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(3px);
+}
+
+
+::ng-deep .mat-tab-list .mat-tab-labels .mat-tab-label-active {
+  font-weight: bold;
+  }
+
+.loginTab{
+  justify-content: center;
+  align-items: center;
+}
+.loginImg{
+  display: block;
+  margin: 2vh 9vw;
+}
+
+
+.mat-form-field {
+  display: inline-block;
+  position: relative;
+  text-align: left;
+  width: 85%;
+  margin: 0 2vw;
+
+}
+
+button{
+background-color: #00B69E;
+color: white;
+margin: 0 12vw;
+width: 30%;
+}
+
+.fgttext {
+padding-left: 40px;
+}
+
+.forgottext a {
+text-decoration: none;
+text-align: right;
+letter-spacing: 0;
+color: #ffffff;
+opacity: 0.75;
+font-size: 13px;
+color: #00B69E;
+}
+
+.signuplink a {
+text-decoration: none;
+color: #00B69E;
+opacity: 0.75;
+font-size: 13px;
+}
+.otherPage{
+margin-top:0;
+}
+
+mat-form-field-appearance-outline .mat-form-field-wrapper {
+margin: 0em 0 !important;
+}
+
+
+  @media only screen and (max-width: 600px) {
+    .container-fluid {
+      background-size: cover;
+      height: 100vh;
+      width: 100%;
+      position: relative;
+    }
+
+    .card {
+      width: 300px;
+      height: 567px;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+    .forgottext a {
+      text-decoration: none;
+      text-align: right;
+      letter-spacing: 0;
+      color: #ffffff;
+      opacity: 0.75;
+      font-size: 8px;
+      color: #00B69E;
+      }
+
+      .signuplink a {
+      text-decoration: none;
+      color: #00B69E;
+      opacity: 0.75;
+      font-size: 8px;
+      }
+      .fgttext {
+        padding-left: 50px;
+        }
+
+        button{
+          background-color: #00B69E;
+          color: white;
+          margin: 0 22vw;
+          width: 30%;
+          }
+  }
+
+  @media screen and (min-device-width: 1200px) and (max-device-width: 1600px) and (-webkit-min-device-pixel-ratio: 1) {
+    .card {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    button{
+      background-color: #00B69E;
+      color: white;
+      margin: 0 12vw;
+      width: 30%;
+      }
+
+      .fgttext {
+      padding-left: 45px;
+      }
+
+      .forgottext a {
+      text-decoration: none;
+      text-align: right;
+      letter-spacing: 0;
+      color: #ffffff;
+      opacity: 0.75;
+      font-size: 5px;
+      color: #00B69E;
+      }
+
+      .signuplink a {
+      text-decoration: none;
+      color: #00B69E;
+      opacity: 0.75;
+      font-size: 5px;
+      }
+
+  }
