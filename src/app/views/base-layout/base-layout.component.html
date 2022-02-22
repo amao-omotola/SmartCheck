@@ -1,1 +1,36 @@
-<p>base-layout works!</p>
+<div>
+  <div class="row">
+    <mat-toolbar>
+      <img src="../../../assets/Smartcheck Logo White@0.75x.svg">
+    </mat-toolbar>
+  </div>
+
+  <div class="tabs">
+    <div class="tab-header">
+      <ul class="tabs-list">
+        <li class="tab tab--active">
+          <img src="../assets/home.svg">
+          Home
+        </li>
+        <li class="tab">
+          <img src="../assets/application.svg">
+          Application
+        </li>
+        <li class="tab">
+          <img src="../assets/server.svg">
+          Server
+        </li>
+      </ul>
+
+      <button mat-flat-button class="last-item" (click)="checkStatus()" >Check Health Status</button>
+    </div>
+
+    <div class="tab-body">
+      <div>
+        <app-home></app-home>
+      </div>
+
+      <div></div>
+    </div>
+  </div>
+</div>

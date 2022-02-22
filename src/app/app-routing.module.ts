@@ -1,33 +1,24 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { LoginPageComponent } from './views/login-page/login-page.component';
-import { DasboardComponent } from './views/dasboard/dasboard.component';
-import { AuthguardService as AuthGuard } from './shared/service/authguard.service';
-
+import { HomeComponent } from './views/home/home.component';
+import { BaseLayoutComponent } from './views/base-layout/base-layout.component';
 const routes: Routes = [
   {
     path:"",
-    component: LoginPageComponent,
+    component: BaseLayoutComponent,
     data: {
-      title: "Login Page"
+      title: "Home Page"
     }
   },
   {
-    path: "login",
-    component: LoginPageComponent,
+    path: "home",
+    component: BaseLayoutComponent,
     data: {
-      title: "Login Page"
+      title: "Home Page"
     }
   },
-  {
-    path: "dashboard",
-    component: DasboardComponent,
-    canActivate: [AuthGuard],
-    data: {
-      title: "Dashboard Page"
-    }
-  }
+
 ];
 
 @NgModule({

@@ -4,22 +4,27 @@ import { BrowserModule } from '@angular/platform-browser';
 import { CookieService } from 'ngx-cookie-service';
 import { ToastrModule } from "ngx-toastr";
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import {MatIconModule} from '@angular/material/icon';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LoginPageComponent } from './views/login-page/login-page.component';
 import { CompleteMaterialModule } from './shared/angular-material.module';
-import { DasboardComponent } from './views/dasboard/dasboard.component';
-import { AuthInterceptor } from './shared/interceptors/auth.interceptor';
-import { ErrorInterceptor } from './shared/interceptors/error.interceptor';
+import { HomeComponent } from './views/home/home.component';
+import { ServerComponent } from './views/server/server.component';
+import { ApplicationComponent } from './views/application/application.component';
+import { BaseLayoutComponent } from './views/base-layout/base-layout.component';
+import { CheckStatusComponent } from './views/modals/check-status/check-status.component';
+import { ViewResultComponent } from './views/modals/view-result/view-result.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginPageComponent,
-    DasboardComponent,
+    HomeComponent,
+    ServerComponent,
+    ApplicationComponent,
+    BaseLayoutComponent,
+    CheckStatusComponent,
+    ViewResultComponent,
   ],
   imports: [
     BrowserModule,
@@ -28,16 +33,11 @@ import { ErrorInterceptor } from './shared/interceptors/error.interceptor';
     CompleteMaterialModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule,
     MatIconModule,
     ToastrModule.forRoot(),
 
   ],
-  providers: [
-    CookieService,
-    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
-    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
-  ],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
