@@ -1,4 +1,4 @@
-<div>
+<div class="moda">
   <div class="modal-header">
     <h5>Health Check Result</h5>
   </div>
@@ -27,7 +27,13 @@
             </li>
           </ul>
         </mat-card>
+        <div class="refresh">
+          <p style="color: #49D3FF">
+            <mat-icon>refresh</mat-icon>Refresh
+          </p>
+        </div>
       </div>
+
       <div class="col-sm-6">
         <mat-card>
           <p>{{result.title}}
@@ -50,12 +56,17 @@
             </li>
           </ul>
         </mat-card>
+        <div class="refresh">
+          <p style="color: #49D3FF">
+            <mat-icon>refresh</mat-icon>Refresh
+          </p>
+        </div>
       </div>
+
     </div>
   </div>
 
-  <div class="modal-footer">
+  <div class="footer">
     <button mat-flat-button class="blue-button" (click)="closeModal()">Cancel</button>
   </div>
 </div>
-

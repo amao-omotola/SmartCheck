@@ -1,1 +1,60 @@
-<p>check-status works!</p>
+<div>
+  <div class="modal-header">
+    <h5>Conduct Health Check</h5>
+  </div>
+
+
+  <div class="modal-body">
+    <div class="apps">
+      <section class="application-section">
+        <h6>Application</h6>
+
+        <div class="app-container">
+          <mat-checkbox [checked]="allComplete" [indeterminate]="someComplete()" (change)="setAll($event.checked)">
+            {{task.name}}
+          </mat-checkbox>
+
+          <div class="list-sections">
+            <p>Select application</p>
+
+            <ul class="section">
+              <li *ngFor="let subtask of task.subtasks">
+                <mat-checkbox [(ngModel)]="subtask.completed" (ngModelChange)="updateAllComplete()">
+                  {{subtask.name}}
+                </mat-checkbox>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="application-section">
+        <h6>Server</h6>
+
+        <div class="app-container">
+          <mat-checkbox class="application-margin" [checked]="allComplete" [indeterminate]="someCompleteServer()"
+            (change)="setAllServer($event.checked)">
+            {{server.name}}
+          </mat-checkbox>
+
+          <div class="list-sections">
+            <p>Select application</p>
+
+            <ul class="section">
+              <li *ngFor="let server of server.subservers">
+                <mat-checkbox [(ngModel)]="server.completed" (ngModelChange)="updateAllCompleteServer()">
+                  {{server.name}}
+                </mat-checkbox>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <div class="modal-footer">
+    <button mat-flat-button (click)="closeModal()">Cancel</button>
+    <button mat-flat-button class="blue-button" (click)="checkResultModal()">Check Health Status</button>
+  </div>
+</div>

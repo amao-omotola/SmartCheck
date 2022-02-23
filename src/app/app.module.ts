@@ -15,6 +15,10 @@ import { ApplicationComponent } from './views/application/application.component'
 import { BaseLayoutComponent } from './views/base-layout/base-layout.component';
 import { CheckStatusComponent } from './views/modals/check-status/check-status.component';
 import { ViewResultComponent } from './views/modals/view-result/view-result.component';
+import { CheckResultComponent } from './views/modals/check-result/check-result.component';
+import { CreateServerComponent } from './views/modals/create-server/create-server.component';
+import { AddApplicationComponent } from './views/modals/add-application/add-application.component';
+import { DeactivateServerComponent } from './views/modals/deactivate-server/deactivate-server.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +29,10 @@ import { ViewResultComponent } from './views/modals/view-result/view-result.comp
     BaseLayoutComponent,
     CheckStatusComponent,
     ViewResultComponent,
+    CheckResultComponent,
+    CreateServerComponent,
+    AddApplicationComponent,
+    DeactivateServerComponent,
   ],
   imports: [
     BrowserModule,

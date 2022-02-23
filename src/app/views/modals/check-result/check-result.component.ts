@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
 @Component({
-  selector: 'app-view-result',
-  templateUrl: './view-result.component.html',
-  styleUrls: ['./view-result.component.scss']
+  selector: 'app-check-result',
+  templateUrl: './check-result.component.html',
+  styleUrls: ['./check-result.component.scss']
 })
-export class ViewResultComponent implements OnInit {
+export class CheckResultComponent implements OnInit {
 
   constructor(
-    private dialogRef: MatDialogRef<ViewResultComponent>
+    private dialogRef: MatDialogRef<CheckResultComponent>
   ) { }
   result = {
     title: 'App Name 1',
@@ -20,12 +20,10 @@ export class ViewResultComponent implements OnInit {
       {server: 'Server 1', status:'done'},
     ]
   }
-
   ngOnInit(): void {
   }
 
   closeModal() {
-    this.dialogRef.close();
-      }
-
+this.dialogRef.close();
+  }
 }

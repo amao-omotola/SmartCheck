@@ -1,36 +1,41 @@
 <div>
-  <div class="row">
-    <mat-toolbar>
-      <img src="../../../assets/Smartcheck Logo White@0.75x.svg">
-    </mat-toolbar>
-  </div>
+  <mat-toolbar>
+    <img src="../../../assets/Smartcheck Logo White@0.75x.svg">
+  </mat-toolbar>
 
   <div class="tabs">
     <div class="tab-header">
       <ul class="tabs-list">
-        <li class="tab tab--active">
+        <li class="tab tab--active" [style.border-bottom]="component=='home' ? '5px solid #49D3FF': 'none'" (click)="updateView('home')">
           <img src="../assets/home.svg">
           Home
         </li>
-        <li class="tab">
-          <img src="../assets/application.svg">
-          Application
-        </li>
-        <li class="tab">
+        <li class="tab" [style.border-bottom]="component=='server' ? '5px solid #49D3FF': 'none'" (click)="updateView('server')">
           <img src="../assets/server.svg">
           Server
+        </li>
+        <li class="tab" [style.border-bottom]="component=='application' ? '5px solid #49D3FF': 'none'" (click)="updateView('application')">
+          <img src="../assets/application.svg">
+          Application
         </li>
       </ul>
 
       <button mat-flat-button class="last-item" (click)="checkStatus()" >Check Health Status</button>
     </div>
 
-    <div class="tab-body">
-      <div>
+    <div class="tab-body"  [ngSwitch]="component">
+
+      <div *ngSwitchCase="'home'">
         <app-home></app-home>
       </div>
 
-      <div></div>
+      <div>
+        <app-server *ngSwitchCase="'server'"></app-server>
+      </div>
+
+      <div>
+        <app-application *ngSwitchCase="'application'"></app-application>
+      </div>
     </div>
   </div>
 </div>

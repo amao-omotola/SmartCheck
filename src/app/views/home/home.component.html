@@ -73,55 +73,109 @@
             </div>
           </div>
 
-          <div class="table-container">
+          <mat-card>
+            <div class="table-container">
 
-                <div class="mat-elevation-z8">
-                  <table mat-table [dataSource]="dataSource">
 
-                    <!-- Position Column -->
-                    <ng-container matColumnDef="sn">
-                      <th mat-header-cell *matHeaderCellDef> S/N </th>
-                      <td mat-cell *matCellDef="let element"> {{element.sn}} </td>
-                    </ng-container>
+              <div class="field-container">
+                <div class="table-filter">
+                  <mat-form-field appearance="outline">
+                    <mat-label>Search</mat-label>
+                    <input matInput placeholder="Enter a search keyword">
+                    <mat-icon matPrefix>search</mat-icon>
+                  </mat-form-field>
 
-                    <!-- Name Column -->
-                    <ng-container matColumnDef="application">
-                      <th mat-header-cell *matHeaderCellDef> APPLICATION </th>
-                      <td mat-cell *matCellDef="let element"> {{element.application}} </td>
-                    </ng-container>
+                  <mat-form-field appearance="outline">
+                    <mat-label>Active Status</mat-label>
+                    <mat-select>
+                      <mat-option>All</mat-option>
+                      <mat-option>Active</mat-option>
+                      <mat-option>Inactive</mat-option>
+                    </mat-select>
+                  </mat-form-field>
 
-                    <!-- Weight Column -->
-                    <ng-container matColumnDef="servermapped">
-                      <th mat-header-cell *matHeaderCellDef> SERVER MAPPED </th>
-                      <td mat-cell *matCellDef="let element"> {{element.servermapped}} </td>
-                    </ng-container>
+                  <mat-form-field appearance="outline">
+                    <mat-label>All Server</mat-label>
+                    <mat-select>
+                      <mat-option>All Server</mat-option>
+                      <mat-option>Server 1</mat-option>
+                      <mat-option>Server 2</mat-option>
+                    </mat-select>
+                  </mat-form-field>
 
-                    <!-- Symbol Column -->
-                    <ng-container matColumnDef="lastscandate">
-                      <th mat-header-cell *matHeaderCellDef> LAST SCAN DATE </th>
-                      <td mat-cell *matCellDef="let element"> {{element.lastscandate}} </td>
-                    </ng-container>
-
-                    <ng-container matColumnDef="status">
-                      <th mat-header-cell *matHeaderCellDef> STATUS </th>
-                      <td mat-cell *matCellDef="let element"> {{element.status}} </td>
-                    </ng-container>
-
-                    <ng-container matColumnDef="action">
-                      <th mat-header-cell *matHeaderCellDef> ACTION </th>
-                      <td mat-cell *matCellDef="let element" >
-                        <button mat-flat-button class="result-btn" (click)="viewResult()" >View Result</button>
-                      </td>
-                    </ng-container>
-
-                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-                  </table>
-
-                  <mat-paginator [pageSizeOptions]="[5, 10, 20]"
-                                 showFirstLastButtons
-                                 aria-label="Select page of periodic elements">
-                  </mat-paginator>
+                  <mat-form-field appearance="outline">
+                    <mat-label>Check Health Status</mat-label>
+                    <mat-select>
+                      <mat-option>All</mat-option>
+                      <mat-option>Healthy</mat-option>
+                      <mat-option>Unhealthy</mat-option>
+                    </mat-select>
+                  </mat-form-field>
                 </div>
-          </div>
+
+              </div>
+                  <div class="table">
+                    <table mat-table [dataSource]="dataSource">
+
+                      <ng-container matColumnDef="sn">
+                        <th mat-header-cell *matHeaderCellDef> S/N </th>
+                        <td mat-cell *matCellDef="let element"> {{element.sn}} </td>
+                      </ng-container>
+
+                      <ng-container matColumnDef="application">
+                        <th mat-header-cell *matHeaderCellDef> APPLICATION </th>
+                        <td mat-cell *matCellDef="let element"> {{element.application}} </td>
+                      </ng-container>
+
+                      <ng-container matColumnDef="servermapped">
+                        <th mat-header-cell *matHeaderCellDef> SERVER MAPPED </th>
+                        <td mat-cell *matCellDef="let element"> {{element.servermapped}} </td>
+                      </ng-container>
+
+                      <ng-container matColumnDef="lastscandate">
+                        <th mat-header-cell *matHeaderCellDef> LAST SCAN DATE </th>
+                        <td mat-cell *matCellDef="let element"> {{element.lastscandate}} </td>
+                      </ng-container>
+
+                      <ng-container matColumnDef="status">
+                        <th mat-header-cell *matHeaderCellDef> STATUS </th>
+                        <td mat-cell *matCellDef="let element">
+                          <mat-icon *ngIf="element.status==='healthy'" style="color: #24C977">check_circle</mat-icon>
+                          <mat-icon *ngIf="element.status==='unhealthy'" style="color: #E0B237">report_probleme</mat-icon>
+                        </td>
+                      </ng-container>
+
+                      <ng-container matColumnDef="action">
+                        <th mat-header-cell *matHeaderCellDef> ACTION </th>
+                        <td mat-cell *matCellDef="let element" >
+                          <button mat-flat-button class="result-btn" (click)="viewResult()" >View Result</button>
+                        </td>
+                      </ng-container>
+
+                      <ng-container matColumnDef="options">
+                        <th mat-header-cell *matHeaderCellDef></th>
+                        <td mat-cell *matCellDef="let element" >
+                          <a [matMenuTriggerFor]="listMenu">
+                            <mat-icon style="color: #D3D3D3;">drag_indicator</mat-icon>
+                          </a>
+
+                          <mat-menu style="padding:0" #listMenu>
+                            <button mat-menu mat-button (click)="deactivate()"> Deactivate</button>
+
+                          </mat-menu>
+                        </td>
+                      </ng-container>
+
+                      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                    </table>
+
+                    <mat-paginator [pageSizeOptions]="[5, 10, 20]"
+                                   showFirstLastButtons
+                                   aria-label="Select page of periodic elements">
+                    </mat-paginator>
+                  </div>
+            </div>
+          </mat-card>
+
         </div>

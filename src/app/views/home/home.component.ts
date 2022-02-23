@@ -4,14 +4,15 @@ import {MatTableDataSource} from '@angular/material/table';
 import { MatDialog } from '@angular/material/dialog';
 
 import { ViewResultComponent } from '../modals/view-result/view-result.component';
+import { DeactivateServerComponent } from '../modals/deactivate-server/deactivate-server.component';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  displayedColumns: string[] = ['sn','application', 'servermapped', 'lastscandate', 'action'];
-  dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
+  displayedColumns: string[] = ['sn','application', 'servermapped', 'lastscandate', 'status', 'action', 'options'];
+  dataSource = new MatTableDataSource<table>(data);
 
   @ViewChild(MatPaginator)
   paginator!: MatPaginator;
@@ -34,8 +35,15 @@ export class HomeComponent implements OnInit {
       width: '54.5vw',
     })
   }
+
+  deactivate(){
+
+    this.dialog.open(DeactivateServerComponent,{
+      width: '20vw'
+    })
+  }
 }
-export interface PeriodicElement {
+export interface table {
   sn:number;
   application: string;
   servermapped: string;
@@ -43,7 +51,7 @@ export interface PeriodicElement {
   status: string;
 }
 
-const ELEMENT_DATA: PeriodicElement[] = [
+const data: table[] = [
   {sn:1, application: 'Application name goes here', servermapped: '3 severs', lastscandate: '11/12/20 3: 57:29 PM', status:'healthy'},
   {sn:2, application: 'Application name goes here', servermapped: '3 severs', lastscandate: '11/12/20 3: 57:29 PM', status:'unhealthy'},
   {sn:3, application: 'Application name goes here', servermapped:'3 severs', lastscandate: '11/12/20 3: 57:29 PM', status:'healthy'},

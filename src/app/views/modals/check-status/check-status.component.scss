@@ -1,0 +1,41 @@
+.apps {
+  width: 70%;
+}
+
+.apps > * + * {
+  margin-top: 3rem;
+}
+
+.application-section {
+  display: flex;
+}
+
+.application-section > * + * {
+  margin-left: 3rem;
+}
+
+.app-container {
+  width: 100%;
+}
+
+// .application-margin {
+//   margin: 0 10px;
+// }
+
+ul {
+  margin: 0;
+  padding: 1rem;
+  list-style-type: none;
+}
+
+.list-sections {
+  margin-top: 1rem;
+}
+
+.section {
+  border: 1px solid #00000029;
+}
+
+.modal-buttons {
+  margin-left: auto;
+}

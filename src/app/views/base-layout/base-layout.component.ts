@@ -13,13 +13,21 @@ export class BaseLayoutComponent implements OnInit {
   constructor(
     public dialog: MatDialog,
   ) { }
+  component='';
 
   ngOnInit(): void {
+
+    this.component='home'
   }
   checkStatus(){
     this.dialog.open(CheckStatusComponent, {
       minHeight: '55vh',
       width: '54.5vw',
     })
+  }
+
+  updateView(value:any){
+    this.component=value;
+
   }
 }

@@ -1,0 +1,33 @@
+.moda{
+  height: 100%;
+  justify-content: space-between;
+  flex-direction: column;
+  display: flex;
+}
+
+.body {
+  // margin: 0rem 10rem
+  width: 70%;
+  margin: 0 auto;
+}
+
+.content{
+  // margin: 2rem 0rem;
+  margin-top: 2rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.content > label {
+  flex: 0 0 20%;
+}
+
+.content > input {
+  flex: 1;
+}
+.footer{
+  align-self: flex-end;
+margin-top:1rem
+}
+
+

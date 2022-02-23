@@ -93,3 +93,20 @@ table {
     letter-spacing: 0px;
     color: #1B1464;
 }
+
+.mat-form-field-appearance-fill .mat-form-field-flex {
+  border-radius: 4px 4px 0 0;
+  /* padding: 0.75em 0.75em 0 0.75em; */
+  height: 2.5rem;
+}
+
+.field-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.table-filter > * + * {
+  margin-left: 1rem;
+}
+
